@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Kiran Ravipati | Data Engineer & AI Specialist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+</head>
+<body>
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-text">SKR</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" data-text="Home">Home</a></li>
+            <li><a href="#about" data-text="About">About</a></li>
+            <li><a href="#experience" data-text="Experience">Experience</a></li>
+            <li><a href="#projects" data-text="Projects">Projects</a></li>
+            <li><a href="#contact" data-text="Contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- WebGL Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Hi, I'm</span>
+                    <span class="title-line main-name">Sai Kiran Ravipati</span>
+                    <span class="title-line subtitle">Data Engineer & AI Specialist</span>
+                </h1>
+                <p class="hero-description">
+                    Transforming data into insights with cutting-edge AI/ML solutions and cloud technologies. 
+                    Passionate about building scalable data pipelines and intelligent systems.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">~2</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Let's Connect</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-animation">
+                    <div class="code-line"><span class="keyword">import</span> <span class="module">pandas</span> <span class="keyword">as</span> <span class="module">pd</span></div>
+                    <div class="code-line"><span class="keyword">from</span> <span class="module">google.cloud</span> <span class="keyword">import</span> <span class="module">bigquery</span></div>
+                    <div class="code-line"><span class="keyword">def</span> <span class="function">process_data</span>():</div>
+                    <div class="code-line indent"><span class="comment"># AI-powered data processing</span></div>
+                    <div class="code-line indent"><span class="variable">client</span> = <span class="module">bigquery</span>.<span class="function">Client</span>()</div>
+                    <div class="code-line indent"><span class="keyword">return</span> <span class="string">"insights"</span></div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2> 
+                <div class="about-container">
+                <div class="profile-pic">
+                    <img src="me.jpeg" alt="Your Name">
+            </div>
+            </div>
+                <p class="section-subtitle">Passionate about data, driven by innovation</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Dynamic and results-driven Associate Engineer with hands-on experience in Python, SQL, AI/ML, and Generative AI. Proficient in Cloud technologies (GCP, AWS) with a strong foundation in software development and data engineering.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>saikiranravipati24@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ongole, Andhra Pradesh, India</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Programming & Data</h3>
+                        <div class="skills">
+                            <div class="skill" data-skill="90">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill" data-skill="85">
+                                <span class="skill-name">SQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill" data-skill="60">
+                                <span class="skill-name">Power BI</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud & AI</h3>
+                        <div class="skills">
+                            <div class="skill" data-skill="92">
+                                <span class="skill-name">Google Cloud</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill" data-skill="70">
+                                <span class="skill-name">AWS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill" data-skill="60">
+                                <span class="skill-name">Generative AI</span>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Associate Engineer</h3>
+                        <h4>Virtusa</h4>
+                        <ul>
+                            <li>Developed and maintained data pipelines using Python and PySpark</li>
+                            <li>Implemented AI/ML solutions for business process optimization</li>
+                            <li>Worked with Google Cloud Platform for scalable data processing</li>
+                            <li>Collaborated on Generative AI projects for automation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 - 2023</div>
+                    <div class="timeline-content">
+                        <h3>Intern - Traine</h3>
+                        <h4>Virtusa</h4>
+                        <ul>
+                            <li>Built ETL pipelines for data warehouse management</li>
+                            <li>Optimized SQL queries for improved performance</li>
+                            <li>Assisted in cloud migration projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-number">01</div>
+                    <div class="project-date">2025</div>
+                    <h3>Intigrate-Airflow-GCP-ETL-pipeline</h3>
+                    <p>This project demonstrates an end-to-end data pipeline built using Airflow, integrated with Google Cloud Platform services such as Cloud Storage (GCS), BigQuery, and Cloud Data Fusion.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Airflow</span>
+                        <span>GCP</span>
+                        <span>BigQuery</span>
+                        <span>Power BI</span>
+                    </div>
+                    <a href="https://github.com/SaiKiran20011060/Intigrate-Airflow-GCP-ETL-pipeline-" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-number">02</div>
+                    <div class="project-date">2025</div>
+                    <h3>GCP-Employee-Data-ETL-Pipeline</h3>
+                    <p>A GCP-based ETL pipeline that generates synthetic employee data with Python, stores it in GCS, masks sensitive fields in Data Fusion, loads it into BigQuery, and connects to Power BI for visualization.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>GCP</span>
+                        <span>BigQuery</span>
+                        <span>Power BI</span>
+                    </div>
+                    <a href="https://github.com/SaiKiran20011060/GCP-Employee-Data-ETL-Pipeline" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-number">03</div>
+                    <div class="project-date">2024</div>
+                    <h3>Excel-AI-Chatbot</h3>
+                    <p>Excel Query Chatbot with AI This project is a Streamlit-based application that enables users to upload Excel files, ask natural language queries about the data, and receive actionable insights or visualizations. The chatbot uses Google’s Generative AI API (Gemini) to interpret queries and generate Python code for data analysis and visualization.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Generative AI</span>
+                        <span>Data analysis</span>
+                        <span>Streamlit</span>
+                    </div>
+                    <a href="https://github.com/SaiKiran20011060/Excel-AI-Chatbot" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-number">04</div>
+                    <div class="project-date">2022</div>
+                    <h3>Real-time Analytics Dashboard</h3>
+                    <p>Created a comprehensive analytics dashboard for real-time data visualization using modern web technologies and cloud-based data processing.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>D3.js</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                        <span>WebSocket</span>
+                    </div>
+                    <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certificates-scroll-container">
+                <div class="certificates-scroll" id="certificatesScroll">
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/GCP_data_en.jpg', 'Google Cloud Professional Data Engineer')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/GCP_data_en.jpg" alt="GCP Data Engineer">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Google Cloud Professional Data Engineer</h3>
+                            <p>Advanced data engineering certification</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/AWS_AI.png', 'AWS Certified AI Practitioner')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/AWS_AI.png" alt="AWS AI Practitioner">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>AWS Certified AI Practitioner</h3>
+                            <p>AI and machine learning on AWS</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/L400.jpg', 'Google L400')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/L400.jpg" alt="Google L400">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Google L400</h3>
+                            <p>Advanced Google Cloud certification</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/Azure_AI.jpg', 'Microsoft Azure AI Solution')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/Azure_AI.jpg" alt="Azure AI Solution">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Microsoft Azure AI Solution</h3>
+                            <p>AI solutions on Microsoft Azure</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/Microsoft_SQL.jpg', 'Microsoft SQL Server')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/Microsoft_SQL.jpg" alt="Microsoft SQL">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Microsoft SQL Server</h3>
+                            <p>Database management and optimization</p>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless scroll -->
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/GCP_data_en.jpg', 'Google Cloud Professional Data Engineer')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/GCP_data_en.jpg" alt="GCP Data Engineer">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Google Cloud Professional Data Engineer</h3>
+                            <p>Advanced data engineering certification</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/AWS_AI.png', 'AWS Certified AI Practitioner')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/AWS_AI.png" alt="AWS AI Practitioner">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>AWS Certified AI Practitioner</h3>
+                            <p>AI and machine learning on AWS</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/L400.jpg', 'Google L400')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/L400.jpg" alt="Google L400">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Google L400</h3>
+                            <p>Advanced Google Cloud certification</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/Azure_AI.jpg', 'Microsoft Azure AI Solution')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/Azure_AI.jpg" alt="Azure AI Solution">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Microsoft Azure AI Solution</h3>
+                            <p>AI solutions on Microsoft Azure</p>
+                        </div>
+                    </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/Microsoft_SQL.jpg', 'Microsoft SQL Server')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates/Microsoft_SQL.jpg" alt="Microsoft SQL">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Microsoft SQL Server</h3>
+                            <p>Database management and optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Certificate">
+            <h3 id="modalTitle"></h3>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                <div class="contact-details">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=saikiranravipati24@gmail.com" class="contact-email" target="_blank">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://github.com/SaiKiran20011060" class="contact-github" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/sai-kiran-ravipati-019239193/" class="contact-linkdin" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // AI/Tech Network Background
+        const canvas = document.getElementById('webgl-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const nodes = [];
+        const numNodes = 50;
+        const maxDistance = 150;
+        
+        class Node {
+            constructor() {
+                this.x = Math.random() * window.innerWidth;
+                this.y = Math.random() * window.innerHeight;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 1.5 + 1;
+                this.connections = [];
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > window.innerWidth) this.vx *= -1;
+                if (this.y < 0 || this.y > window.innerHeight) this.vy *= -1;
+                
+                this.x = Math.max(0, Math.min(window.innerWidth, this.x));
+                this.y = Math.max(0, Math.min(window.innerHeight, this.y));
+            }
+            
+            draw() {
+                this.connections.forEach(connection => {
+                    const distance = Math.sqrt((this.x - connection.x) ** 2 + (this.y - connection.y) ** 2);
+                    const opacity = 1 - (distance / maxDistance);
+                    
+                    ctx.strokeStyle = `rgba(100, 255, 218, ${opacity * 0.3})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y);
+                    ctx.lineTo(connection.x, connection.y);
+                    ctx.stroke();
+                });
+                
+                const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 2);
+                gradient.addColorStop(0, 'rgba(100, 255, 218, 0.8)');
+                gradient.addColorStop(0.5, 'rgba(100, 255, 218, 0.4)');
+                gradient.addColorStop(1, 'rgba(100, 255, 218, 0)');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = 'rgba(100, 255, 218, 1)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        for (let i = 0; i < numNodes; i++) {
+            nodes.push(new Node());
+        }
+        
+        function updateConnections() {
+            nodes.forEach(node => {
+                node.connections = [];
+                nodes.forEach(otherNode => {
+                    if (node !== otherNode) {
+                        const distance = Math.sqrt((node.x - otherNode.x) ** 2 + (node.y - otherNode.y) ** 2);
+                        if (distance < maxDistance) {
+                            node.connections.push(otherNode);
+                        }
+                    }
+                });
+            });
+        }
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            updateConnections();
+            
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        animate();
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sai Kiran Ravipati. Crafted with passion and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(imageSrc, title) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('certificateModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('certificateModal').style.display = 'none';
+        }
+        
+        // Mouse wheel scrolling for certificates
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollContainer = document.querySelector('.certificates-scroll-container');
+            
+            scrollContainer.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                scrollContainer.scrollLeft += e.deltaY;
+            });
+        });
+    </script>
+    
+
+    <script src="js/scrip.js"></script>
+</body>
+</html>

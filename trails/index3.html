@@ -8,7 +8,105 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <style>
+        /* Horizontal scrolling certificates */
+        .certificates-scroll-container {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        .certificates-scroll {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+        }
+        
+        .certificates-scroll-container {
+            overflow: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .certificates-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .certificate-card {
+            background: rgba(100, 255, 218, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            border-color: #64ffda;
+            box-shadow: 0 15px 35px rgba(100, 255, 218, 0.3);
+        }
+        
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            margin-bottom: 1rem;
+        }
+        
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-card:hover .certificate-image img {
+            transform: scale(1.05);
+        }
+        
+        .certificate-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .certificate-content h3 {
+            color: #ccd6f6;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .certificate-content p {
+            color: #8892b0;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
 
+        
+        /* Fix modal background */
+        .modal {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        .modal-content {
+            background: #0f0f23 !important;
+            border: 2px solid #64ffda !important;
+        }
+        
+
+    </style>
 </head>
 <body>
     <!-- Cursor -->
@@ -56,11 +154,11 @@
                         <span class="stat-label">Years Experience</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">10+</span>
+                        <span class="stat-number">5+</span>
                         <span class="stat-label">Certifications</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">5+</span>
+                        <span class="stat-number">10+</span>
                         <span class="stat-label">Projects</span>
                     </div>
                 </div>
@@ -109,6 +207,10 @@
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <span>saikiranravipati24@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 7036815352</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -182,11 +284,10 @@
                         <h3>Associate Engineer</h3>
                         <h4>Virtusa</h4>
                         <ul>
-                            <li>Associate Engineer at Virtusa with ~2 years in software development and cloud technologies, skilled in Python, SQL, and GCP.</li>
-                            <li>Expertise in AI, ML, GenAI, Big Data (Kafka, Spark), and building scalable pipelines.</li>
-                            <li>Adaptable, collaborative, problem-solver aligning tech with business goals.</li>
-                            <li>Driven to explore new technologies, innovate, and deliver impactful solutions.</li>
-                            <li>Assisted in migration projects</li>
+                            <li>Developed and maintained data pipelines using Python and PySpark</li>
+                            <li>Implemented AI/ML solutions for business process optimization</li>
+                            <li>Worked with Google Cloud Platform for scalable data processing</li>
+                            <li>Collaborated on Generative AI projects for automation</li>
                         </ul>
                     </div>
                 </div>
@@ -196,8 +297,9 @@
                         <h3>Intern - Traine</h3>
                         <h4>Virtusa</h4>
                         <ul>
-                            <li>Gained hands-on experience with Google Cloud Platform (GCP), including Compute Engine, Storage, Networking, IAM, and BigQuery through training and real-time projects.</li>
-                            <li>Built a strong foundation in cloud solution design and data analysis, equipping me to contribute to scalable and secure GCP-based implementations.</li>
+                            <li>Built ETL pipelines for data warehouse management</li>
+                            <li>Optimized SQL queries for improved performance</li>
+                            <li>Assisted in cloud migration projects</li>
                         </ul>
                     </div>
                 </div>
@@ -253,15 +355,16 @@
                 <div class="project-card">
                     <div class="project-number">04</div>
                     <div class="project-date">2022</div>
-                    <h3>Sentiment Analysis</h3>
-                    <p>This project leverages Google Gemini AI and ServiceNow REST APIs to perform sentiment analysis on incident descriptions. The system helps IT service teams and support engineers understand the emotional tone of incidents (negative, neutral, or positive) and prioritize tickets more effectively.</p>
+                    <h3>Real-time Analytics Dashboard</h3>
+                    <p>Created a comprehensive analytics dashboard for real-time data visualization using modern web technologies and cloud-based data processing.</p>
                     <div class="project-tech">
-                        <span>Python</span>
-                        <span>Gen AI</span>
-                        <span>ServiceNow</span>
+                        <span>React</span>
+                        <span>D3.js</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
                         <span>WebSocket</span>
                     </div>
-                    <a href="https://github.com/SaiKiran20011060/Sentiment-Analysis" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -412,8 +515,8 @@
             constructor() {
                 this.x = Math.random() * window.innerWidth;
                 this.y = Math.random() * window.innerHeight;
-                this.vx = (Math.random() - 2.5) * 0.5;
-                this.vy = (Math.random() - 2.5) * 0.5;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
                 this.size = Math.random() * 1.5 + 1;
                 this.connections = [];
             }
@@ -518,37 +621,52 @@
             document.getElementById('certificateModal').style.display = 'none';
         }
         
-        // Hamburger menu and certificates functionality
+        // Seamless infinite scroll for certificates
         document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger menu
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-            
-            // Mouse wheel scrolling for certificates
             const scrollContainer = document.querySelector('.certificates-scroll-container');
-            if (scrollContainer) {
-                scrollContainer.addEventListener('wheel', function(e) {
-                    e.preventDefault();
-                    scrollContainer.scrollLeft += e.deltaY;
-                });
+            const scrollElement = document.querySelector('.certificates-scroll');
+            
+            let scrollPosition = 0;
+            let isHovered = false;
+            const scrollSpeed = 0.5;
+            const cardWidth = 320; // 300px + 20px gap
+            const totalCards = 5;
+            const resetPoint = cardWidth * totalCards;
+            
+            // Mouse wheel scrolling
+            scrollContainer.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                scrollPosition += e.deltaY * 0.5;
+                updateScroll();
+            });
+            
+            // Hover pause
+            scrollContainer.addEventListener('mouseenter', () => isHovered = true);
+            scrollContainer.addEventListener('mouseleave', () => isHovered = false);
+            
+            function updateScroll() {
+                if (scrollPosition >= resetPoint) {
+                    scrollPosition = 0;
+                }
+                if (scrollPosition < 0) {
+                    scrollPosition = resetPoint - Math.abs(scrollPosition);
+                }
+                scrollElement.style.transform = `translateX(-${scrollPosition}px)`;
             }
+            
+            function autoScroll() {
+                if (!isHovered) {
+                    scrollPosition += scrollSpeed;
+                    updateScroll();
+                }
+                requestAnimationFrame(autoScroll);
+            }
+            
+            autoScroll();
         });
     </script>
     
 
-
+    <script src="js/scrip.js"></script>
 </body>
 </html>

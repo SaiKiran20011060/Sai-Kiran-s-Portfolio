@@ -318,52 +318,7 @@
                             <p>Database management and optimization</p>
                         </div>
                     </div>
-                    <!-- Duplicate for seamless scroll -->
-                    <div class="certificate-card" onclick="openModal('Courses Certificates/GCP_data_en.jpg', 'Google Cloud Professional Data Engineer')">
-                        <div class="certificate-image">
-                            <img src="Courses Certificates/GCP_data_en.jpg" alt="GCP Data Engineer">
-                        </div>
-                        <div class="certificate-content">
-                            <h3>Google Cloud Professional Data Engineer</h3>
-                            <p>Advanced data engineering certification</p>
-                        </div>
-                    </div>
-                    <div class="certificate-card" onclick="openModal('Courses Certificates/AWS_AI.png', 'AWS Certified AI Practitioner')">
-                        <div class="certificate-image">
-                            <img src="Courses Certificates/AWS_AI.png" alt="AWS AI Practitioner">
-                        </div>
-                        <div class="certificate-content">
-                            <h3>AWS Certified AI Practitioner</h3>
-                            <p>AI and machine learning on AWS</p>
-                        </div>
-                    </div>
-                    <div class="certificate-card" onclick="openModal('Courses Certificates/L400.jpg', 'Google L400')">
-                        <div class="certificate-image">
-                            <img src="Courses Certificates/L400.jpg" alt="Google L400">
-                        </div>
-                        <div class="certificate-content">
-                            <h3>Google L400</h3>
-                            <p>Advanced Google Cloud certification</p>
-                        </div>
-                    </div>
-                    <div class="certificate-card" onclick="openModal('Courses Certificates/Azure_AI.jpg', 'Microsoft Azure AI Solution')">
-                        <div class="certificate-image">
-                            <img src="Courses Certificates/Azure_AI.jpg" alt="Azure AI Solution">
-                        </div>
-                        <div class="certificate-content">
-                            <h3>Microsoft Azure AI Solution</h3>
-                            <p>AI solutions on Microsoft Azure</p>
-                        </div>
-                    </div>
-                    <div class="certificate-card" onclick="openModal('Courses Certificates/Microsoft_SQL.jpg', 'Microsoft SQL Server')">
-                        <div class="certificate-image">
-                            <img src="Courses Certificates/Microsoft_SQL.jpg" alt="Microsoft SQL">
-                        </div>
-                        <div class="certificate-content">
-                            <h3>Microsoft SQL Server</h3>
-                            <p>Database management and optimization</p>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -518,37 +473,9 @@
             document.getElementById('certificateModal').style.display = 'none';
         }
         
-        // Hamburger menu and certificates functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger menu
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', function() {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-            
-            // Mouse wheel scrolling for certificates
-            const scrollContainer = document.querySelector('.certificates-scroll-container');
-            if (scrollContainer) {
-                scrollContainer.addEventListener('wheel', function(e) {
-                    e.preventDefault();
-                    scrollContainer.scrollLeft += e.deltaY;
-                });
-            }
-        });
+
     </script>
     
-
-
+    <script src="js/scrip.js"></script>
 </body>
 </html>

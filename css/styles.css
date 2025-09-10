@@ -1366,7 +1366,7 @@ body {
 .certificates-scroll {
     display: flex;
     gap: 3rem;
-    animation: scroll 30s linear infinite;
+    animation: scroll 100s linear infinite; /* Change 30s to adjust speed */
     width: max-content;
 }
 

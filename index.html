@@ -277,6 +277,18 @@
                     <a href="https://github.com/SaiKiran20011060/Dashboards" class="project-link" target="_blank">View in GitHub <i class="fas fa-arrow-right"></i></a><br>
                     <a href="https://files-dashboards-syyn.onrender.com" class="project-link" target="_blank">View Project Live<i class="fas fa-arrow-right"></i></a>
                 </div>
+                <div class="project-card">
+                    <div class="project-number">05</div>
+                    <div class="project-date">2024</div>
+                    <h3>Shiny Ecommerce</h3>
+                    <p>A Demo modern e-commerce web application built with Python Shiny, featuring user authentication, shopping cart functionality, order management, and analytics dashboard.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Shiny</span>
+                    </div>
+                    <a href="https://github.com/SaiKiran20011060/Shiny-Ecommers" class="project-link" target="_blank">View in GitHub <i class="fas fa-arrow-right"></i></a><br>
+                    <a href="https://01992a0e-dc7c-e0ad-817e-c126b6933dc8.share.connect.posit.cloud/" class="project-link" target="_blank">View Project Live<i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -350,6 +362,15 @@
                             <p>Orchestration and workflow automation</p>
                         </div>
                     </div>
+                    <div class="certificate-card" onclick="openModal('Courses Certificates/Data Structures and Algorithms Analysis.png', 'Data Structures and Algorithms Analysis')">
+                        <div class="certificate-image">
+                            <img src="Courses Certificates\Data Structures and Algorithms Analysis.png" alt="Data Structures and Algorithms Analysis">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Data Structures and Algorithms Analysis</h3>
+                            <p>Analysis and Problem-Solving Techniques</p>
+                        </div>
+                    </div>
                     <div class="certificate-card" onclick="openModal('Courses Certificates/AWS cloud practitioner.jpg', 'AWS Certified Cloud Practitioner')">
                         <div class="certificate-image">
                             <img src="Courses Certificates\AWS cloud practitioner.jpg" alt="AWS cloud practitioner">
@@ -388,6 +409,9 @@
                     </div>
                 </div>
             </div>
+            <div class="view-all-container">
+                <button class="view-all-btn" onclick="openAllCertificatesModal()">View All Certificates</button>
+            </div>
         </div>
     </section>
 
@@ -399,6 +423,17 @@
             <h3 id="modalTitle"></h3>
         </div>
     </div>
+
+    <!-- All Certificates Modal -->
+    <div id="allCertificatesModal" class="modal" onclick="closeAllCertificatesModal()">
+        <div class="modal-content all-certs-modal" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeAllCertificatesModal()">&times;</span>
+            <h2>All Certifications</h2>
+            <div class="all-certificates-grid" id="allCertificatesGrid"></div>
+        </div>
+    </div>
+
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -538,6 +573,31 @@
         
         function closeModal() {
             document.getElementById('certificateModal').style.display = 'none';
+        }
+        
+        function openAllCertificatesModal() {
+            const grid = document.getElementById('allCertificatesGrid');
+            const certificates = Array.from(document.querySelectorAll('.certificates-scroll .certificate-card'));
+            const uniqueCerts = [];
+            const seen = new Set();
+            
+            certificates.forEach(cert => {
+                const title = cert.querySelector('h3').textContent;
+                if (!seen.has(title)) {
+                    seen.add(title);
+                    uniqueCerts.push(cert);
+                }
+            });
+            
+            grid.innerHTML = '';
+            uniqueCerts.forEach(cert => {
+                grid.appendChild(cert.cloneNode(true));
+            });
+            document.getElementById('allCertificatesModal').style.display = 'block';
+        }
+        
+        function closeAllCertificatesModal() {
+            document.getElementById('allCertificatesModal').style.display = 'none';
         }
         
 

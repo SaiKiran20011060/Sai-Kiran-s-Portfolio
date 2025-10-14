@@ -1394,7 +1394,7 @@ html {
 .certificates-scroll {
     display: flex;
     gap: 3rem;
-    animation: scroll 100s linear infinite;
+    animation: scroll 200s linear infinite;
     width: max-content;
     will-change: transform;
 }

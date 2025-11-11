@@ -1608,3 +1608,110 @@ html {
         font-size: 0.85rem;
     }
 }
+/* Dynamic text styling to prevent layout shift */
+#dynamic-text {
+    display: inline-block;
+    min-width: 200px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    #dynamic-text {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    #dynamic-text {
+        min-width: 120px;
+    }
+}
+/* Cool code animation effects */
+.code-animation {
+    position: relative;
+    overflow: hidden;
+}
+
+.code-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+}
+
+.code-animation.updating::before {
+    left: 100%;
+}
+
+.code-line {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.4s ease;
+}
+
+.code-animation.updating .code-line {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.code-line.fade-in {
+    animation: codeLineAppear 0.6s ease forwards;
+}
+
+@keyframes codeLineAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.code-animation {
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.1);
+    transition: all 0.5s ease;
+}
+
+.code-animation.updating {
+    border-color: rgba(100, 255, 218, 0.6);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+    transform: scale(1.02);
+}
+
+/* Glitch effect for role transitions */
+#dynamic-text {
+    position: relative;
+}
+
+#dynamic-text.glitch {
+    animation: glitch 0.3s ease-in-out;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    60% { transform: translateX(-1px); }
+    80% { transform: translateX(1px); }
+}
+
+/* Typing cursor effect */
+#dynamic-text::after {
+    content: '|';
+    color: #64ffda;
+    animation: blink-cursor 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}

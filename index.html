@@ -45,7 +45,7 @@
                 <h1 class="hero-title">
                     <span class="title-line">Hi, I'm</span>
                     <span class="title-line main-name">Sai Kiran Ravipati</span>
-                    <span class="title-line subtitle">Data Engineer & AI Specialist</span>
+                    <span class="title-line subtitle"><span id="dynamic-text">GCP Professional</span></span>
                 </h1>
                 <p class="hero-description">
                     Transforming data into insights with cutting-edge AI/ML solutions and cloud technologies. 
@@ -81,13 +81,13 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="code-animation">
-                    <div class="code-line"><span class="keyword">import</span> <span class="module">pandas</span> <span class="keyword">as</span> <span class="module">pd</span></div>
-                    <div class="code-line"><span class="keyword">from</span> <span class="module">google.cloud</span> <span class="keyword">import</span> <span class="module">bigquery</span></div>
-                    <div class="code-line"><span class="keyword">def</span> <span class="function">process_data</span>():</div>
-                    <div class="code-line indent"><span class="comment"># AI-powered data processing</span></div>
-                    <div class="code-line indent"><span class="variable">client</span> = <span class="module">bigquery</span>.<span class="function">Client</span>()</div>
-                    <div class="code-line indent"><span class="keyword">return</span> <span class="string">"insights"</span></div>
+                <div class="code-animation" id="code-animation">
+                    <div class="code-line"><span class="keyword">from</span> <span class="module">google.cloud</span> <span class="keyword">import</span> <span class="module">compute_v1</span></div>
+                    <div class="code-line"><span class="keyword">import</span> <span class="module">googleapiclient.discovery</span></div>
+                    <div class="code-line"><span class="keyword">def</span> <span class="function">deploy_infrastructure</span>():</div>
+                    <div class="code-line indent"><span class="comment"># GCP infrastructure management</span></div>
+                    <div class="code-line indent"><span class="variable">client</span> = <span class="module">compute_v1</span>.<span class="function">InstancesClient</span>()</div>
+                    <div class="code-line indent"><span class="keyword">return</span> <span class="string">"deployed"</span></div>
                 </div>
             </div>
         </div>
@@ -643,6 +643,173 @@
         }
         
 
+    </script>
+    
+    <script>
+        // Dynamic typing animation
+        const dynamicText = document.getElementById('dynamic-text');
+        const words = [
+            'GCP Professional',
+            'AWS Practitioner',
+            'Data Engineer',
+            'AI Specialist',
+            'Cloud Engineer',
+            'Python Developer',
+            'SQL Expert',
+            'System Architect',
+            'ML Engineer',
+            'Data Scientist'
+        ];
+        
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                dynamicText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                dynamicText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                updateCodeSnippet();
+                typeSpeed = 500;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+        
+        // Code snippets for each role
+        const codeSnippets = {
+            'GCP Professional': [
+                '<span class="keyword">from</span> <span class="module">google.cloud</span> <span class="keyword">import</span> <span class="module">compute_v1</span>',
+                '<span class="keyword">import</span> <span class="module">googleapiclient.discovery</span>',
+                '<span class="keyword">def</span> <span class="function">deploy_infrastructure</span>():',
+                '<span class="comment"># GCP infrastructure management</span>',
+                '<span class="variable">client</span> = <span class="module">compute_v1</span>.<span class="function">InstancesClient</span>()',
+                '<span class="keyword">return</span> <span class="string">"deployed"</span>'
+            ],
+            'AWS Practitioner': [
+                '<span class="keyword">import</span> <span class="module">boto3</span>',
+                '<span class="keyword">from</span> <span class="module">botocore.exceptions</span> <span class="keyword">import</span> <span class="module">ClientError</span>',
+                '<span class="keyword">def</span> <span class="function">manage_aws_resources</span>():',
+                '<span class="comment"># AWS cloud operations</span>',
+                '<span class="variable">ec2</span> = <span class="module">boto3</span>.<span class="function">client</span>(<span class="string">"ec2"</span>)',
+                '<span class="keyword">return</span> <span class="string">"success"</span>'
+            ],
+            'Data Engineer': [
+                '<span class="keyword">import</span> <span class="module">pandas</span> <span class="keyword">as</span> <span class="module">pd</span>',
+                '<span class="keyword">from</span> <span class="module">google.cloud</span> <span class="keyword">import</span> <span class="module">bigquery</span>',
+                '<span class="keyword">def</span> <span class="function">process_data</span>():',
+                '<span class="comment"># Data pipeline processing</span>',
+                '<span class="variable">client</span> = <span class="module">bigquery</span>.<span class="function">Client</span>()',
+                '<span class="keyword">return</span> <span class="string">"insights"</span>'
+            ],
+            'AI Specialist': [
+                '<span class="keyword">import</span> <span class="module">tensorflow</span> <span class="keyword">as</span> <span class="module">tf</span>',
+                '<span class="keyword">from</span> <span class="module">sklearn.model_selection</span> <span class="keyword">import</span> <span class="module">train_test_split</span>',
+                '<span class="keyword">def</span> <span class="function">build_ai_model</span>():',
+                '<span class="comment"># AI model development</span>',
+                '<span class="variable">model</span> = <span class="module">tf</span>.<span class="function">keras.Sequential</span>()',
+                '<span class="keyword">return</span> <span class="string">"trained"</span>'
+            ],
+            'Cloud Engineer': [
+                '<span class="keyword">import</span> <span class="module">kubernetes</span>',
+                '<span class="keyword">from</span> <span class="module">docker</span> <span class="keyword">import</span> <span class="module">APIClient</span>',
+                '<span class="keyword">def</span> <span class="function">orchestrate_containers</span>():',
+                '<span class="comment"># Container orchestration</span>',
+                '<span class="variable">k8s_client</span> = <span class="module">kubernetes</span>.<span class="function">client</span>()',
+                '<span class="keyword">return</span> <span class="string">"scaled"</span>'
+            ],
+            'Python Developer': [
+                '<span class="keyword">from</span> <span class="module">flask</span> <span class="keyword">import</span> <span class="module">Flask, jsonify</span>',
+                '<span class="keyword">import</span> <span class="module">asyncio</span>',
+                '<span class="keyword">def</span> <span class="function">create_api</span>():',
+                '<span class="comment"># Python web development</span>',
+                '<span class="variable">app</span> = <span class="module">Flask</span>(<span class="string">__name__</span>)',
+                '<span class="keyword">return</span> <span class="string">"running"</span>'
+            ],
+            'SQL Expert': [
+                '<span class="keyword">SELECT</span> <span class="variable">user_id</span>, <span class="function">COUNT</span>(*) <span class="keyword">as</span> <span class="variable">orders</span>',
+                '<span class="keyword">FROM</span> <span class="module">analytics.user_orders</span>',
+                '<span class="keyword">WHERE</span> <span class="variable">created_date</span> >= <span class="string">"2024-01-01"</span>',
+                '<span class="comment">-- Advanced SQL analytics</span>',
+                '<span class="keyword">GROUP BY</span> <span class="variable">user_id</span>',
+                '<span class="keyword">ORDER BY</span> <span class="variable">orders</span> <span class="keyword">DESC</span>'
+            ],
+            'System Architect': [
+                '<span class="keyword">import</span> <span class="module">microservices</span>',
+                '<span class="keyword">from</span> <span class="module">architecture</span> <span class="keyword">import</span> <span class="module">DesignPatterns</span>',
+                '<span class="keyword">def</span> <span class="function">design_system</span>():',
+                '<span class="comment"># System architecture design</span>',
+                '<span class="variable">pattern</span> = <span class="module">DesignPatterns</span>.<span class="function">microservice</span>()',
+                '<span class="keyword">return</span> <span class="string">"scalable"</span>'
+            ],
+            'ML Engineer': [
+                '<span class="keyword">import</span> <span class="module">mlflow</span>',
+                '<span class="keyword">from</span> <span class="module">sklearn.ensemble</span> <span class="keyword">import</span> <span class="module">RandomForestClassifier</span>',
+                '<span class="keyword">def</span> <span class="function">deploy_ml_model</span>():',
+                '<span class="comment"># ML model deployment</span>',
+                '<span class="variable">model</span> = <span class="module">RandomForestClassifier</span>()',
+                '<span class="keyword">return</span> <span class="string">"deployed"</span>'
+            ],
+            'Data Scientist': [
+                '<span class="keyword">import</span> <span class="module">numpy</span> <span class="keyword">as</span> <span class="module">np</span>',
+                '<span class="keyword">import</span> <span class="module">matplotlib.pyplot</span> <span class="keyword">as</span> <span class="module">plt</span>',
+                '<span class="keyword">def</span> <span class="function">analyze_data</span>():',
+                '<span class="comment"># Statistical analysis</span>',
+                '<span class="variable">correlation</span> = <span class="module">np</span>.<span class="function">corrcoef</span>(<span class="variable">data</span>)',
+                '<span class="keyword">return</span> <span class="string">"insights"</span>'
+            ]
+        };
+        
+        function updateCodeSnippet() {
+            const currentRole = words[wordIndex];
+            const codeLines = codeSnippets[currentRole];
+            const codeAnimation = document.getElementById('code-animation');
+            const dynamicText = document.getElementById('dynamic-text');
+            
+            if (codeLines) {
+                // Add glitch effect to role text
+                dynamicText.classList.add('glitch');
+                setTimeout(() => dynamicText.classList.remove('glitch'), 300);
+                
+                // Add updating class for transition effects
+                codeAnimation.classList.add('updating');
+                
+                setTimeout(() => {
+                    // Update content
+                    codeAnimation.innerHTML = codeLines.map((line, index) => 
+                        `<div class="code-line${index > 2 ? ' indent' : ''} fade-in" style="animation-delay: ${index * 0.1}s">${line}</div>`
+                    ).join('');
+                    
+                    // Remove updating class
+                    setTimeout(() => {
+                        codeAnimation.classList.remove('updating');
+                    }, 100);
+                }, 400);
+            }
+        }
+        
+        // Start the animation after page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                updateCodeSnippet();
+                typeWriter();
+            }, 1000);
+        });
     </script>
     
     <script src="js/scrip.js"></script>

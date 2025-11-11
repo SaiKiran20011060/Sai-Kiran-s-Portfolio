@@ -1394,7 +1394,7 @@ html {
 .certificates-scroll {
     display: flex;
     gap: 3rem;
-    animation: scroll 200s linear infinite;
+    animation: scroll 100s linear infinite;
     width: max-content;
     will-change: transform;
 }
@@ -1546,3 +1546,65 @@ html {
     display: none !important;
 }
 
+/* Extra Activities Section */
+.Extra-Activities {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.platform-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #e6f1ff;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    min-width: 150px;
+}
+
+.platform-tab:hover {
+    background: rgba(100, 255, 218, 0.1);
+    border-color: rgba(100, 255, 218, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.15);
+}
+
+.platform-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0.9);
+}
+
+.platform-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .Extra-Activities {
+        gap: 1rem;
+    }
+    
+    .platform-tab {
+        padding: 0.75rem 1rem;
+        min-width: 120px;
+    }
+    
+    .platform-logo {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .platform-name {
+        font-size: 0.85rem;
+    }
+}

@@ -1362,6 +1362,40 @@ html {
     justify-content: center; 
 }
 
+/* About section scroll animations */
+.about-header-animate {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.85);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.about-header-animate.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.about-text-animate {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition: opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s;
+}
+
+.about-text-animate.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-skills-animate {
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s;
+}
+
+.about-skills-animate.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .profile-pic img {
     width: 180px;
     height: 180px;
@@ -1681,7 +1715,7 @@ html {
 }
 
 .code-animation.updating {
-    border-color: rgba(100, 255, 218, 0.6);
+    border-color: rgba(100, 255, 218, 0.15);
     box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
     transform: scale(1.02);
 }
@@ -1715,3 +1749,335 @@ html {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
 }
+
+/* ── Projects Conveyor Carousel ── */
+.projects-section {
+    padding: 100px 0 120px;
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.proj-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    height: 520px;
+}
+
+.proj-track-container {
+    flex: 1;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        rgba(0,0,0,0.15) 5%,
+        rgba(0,0,0,0.5) 12%,
+        black 20%,
+        black 80%,
+        rgba(0,0,0,0.5) 88%,
+        rgba(0,0,0,0.15) 95%,
+        transparent 100%);
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        rgba(0,0,0,0.15) 5%,
+        rgba(0,0,0,0.5) 12%,
+        black 20%,
+        black 80%,
+        rgba(0,0,0,0.5) 88%,
+        rgba(0,0,0,0.15) 95%,
+        transparent 100%);
+}
+
+.proj-track {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    padding: 20px 0;
+}
+
+/* ── Disc Card Base ── */
+.proj-track .project-card {
+    flex: 0 0 260px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 2px solid rgba(100, 255, 218, 0.15);
+    background: rgba(10, 10, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    position: static;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.18;
+    transform: scale(0.72);
+    transform-origin: center bottom;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+/* Pedestal under each disc */
+.proj-track .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 22px;
+    background: linear-gradient(180deg, rgba(80,80,120,0.5) 0%, rgba(40,40,80,0.3) 100%);
+    border-radius: 50%;
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+/* Immediate neighbours */
+.proj-track .project-card.pos-left,
+.proj-track .project-card.pos-right {
+    opacity: 0.42;
+    transform: scale(0.84);
+    border-color: rgba(100, 255, 218, 0.25);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.08);
+}
+
+/* Active center disc */
+.proj-track .project-card.pos-center {
+    flex: 0 0 380px;
+    width: 380px;
+    height: 380px;
+    opacity: 1;
+    transform: scale(1);
+    cursor: default;
+    border: 3px solid #64ffda;
+    box-shadow:
+        0 0 0 6px rgba(100, 255, 218, 0.08),
+        0 0 40px rgba(100, 255, 218, 0.35),
+        0 0 80px rgba(100, 255, 218, 0.15),
+        inset 0 0 40px rgba(100, 255, 218, 0.04);
+    background: rgba(8, 8, 28, 0.85);
+}
+
+/* Glowing ring animation on center */
+.proj-track .project-card.pos-center::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(100, 255, 219, 0.15) 60deg,
+        transparent 120deg,
+        transparent 180deg,
+        rgba(100, 255, 219, 0.2) 240deg,
+        transparent 300deg,
+        transparent 360deg
+    );
+    animation: ringRotate 3s linear infinite;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+@keyframes ringRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Pedestal glow for center */
+.proj-track .project-card.pos-center::after {
+    width: 80%;
+    height: 30px;
+    background: linear-gradient(180deg, rgba(100,255,218,0.3) 0%, transparent 100%);
+    bottom: -32px;
+    filter: blur(10px);
+}
+
+.proj-track .project-card:not(.pos-center):hover {
+    opacity: 0.65;
+}
+
+/* ── Card content inside disc ── */
+.proj-track .project-card .project-date {
+    font-size: 0.65rem;
+    color: rgba(100, 255, 218, 0.15);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.proj-track .project-card h3 {
+    font-size: 0.8rem;
+    color: #ccd6f6;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.proj-track .project-card p {
+    font-size: 0.68rem;
+    color: #8892b0;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.proj-track .project-card .project-tech {
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+}
+
+.proj-track .project-card .project-tech span {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+}
+
+.proj-track .project-card .project-link {
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+}
+
+/* Center card gets bigger text */
+.proj-track .project-card.pos-center .project-date {
+    font-size: 0.75rem;
+}
+
+.proj-track .project-card.pos-center h3 {
+    font-size: 1rem;
+    -webkit-line-clamp: 3;
+}
+
+.proj-track .project-card.pos-center p {
+    font-size: 0.78rem;
+    -webkit-line-clamp: 4;
+}
+
+.proj-track .project-card.pos-center .project-tech span {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+}
+
+.proj-track .project-card.pos-center .project-link {
+    font-size: 0.8rem;
+}
+
+.proj-counter { display: none; }
+
+/* ── Arrows ── */
+.proj-arrow {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(100, 255, 218, 0.4);
+    background: rgba(10, 10, 30, 0.7);
+    backdrop-filter: blur(8px);
+    color: #64ffda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.15);
+    position: relative;
+}
+
+.proj-arrow::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.proj-arrow:hover {
+    background: rgba(100, 255, 218, 0.15);
+    border-color: #64ffda;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
+    transform: scale(1.1);
+}
+
+/* ── Dots ── */
+.proj-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.proj-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.proj-dot.active {
+    background: #64ffda;
+    transform: scale(1.5);
+    box-shadow: 0 0 8px rgba(100, 255, 218, 0.15);
+}
+
+/* ── View All ── */
+.view-all-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.view-all-btn {
+    background: transparent;
+    color: #64ffda;
+    border: 2px solid #64ffda;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.view-all-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+}
+
+@media (max-width: 900px) {
+    .proj-carousel-wrapper { height: 420px; }
+    .proj-track .project-card { flex: 0 0 200px; width: 200px; height: 200px; }
+    .proj-track .project-card.pos-center { flex: 0 0 300px; width: 300px; height: 300px; }
+}
+
+@media (max-width: 600px) {
+    .proj-carousel-wrapper { height: 360px; }
+    .proj-track .project-card { flex: 0 0 160px; width: 160px; height: 160px; }
+    .proj-track .project-card.pos-center { flex: 0 0 260px; width: 260px; height: 260px; }
+}
+
+

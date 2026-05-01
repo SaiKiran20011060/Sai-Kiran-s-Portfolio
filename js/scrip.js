@@ -62,12 +62,25 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.querySelectorAll('.skill-category, .project-card').forEach(el => {
+// Observe elements for animation (skip carousel cards)
+document.querySelectorAll('.skill-category, #projGrid .project-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
+});
+
+// About section scroll animations
+const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.about-header-animate, .about-text-animate, .about-skills-animate').forEach(el => {
+    aboutObserver.observe(el);
 });
 
 // Hamburger menu functionality
@@ -141,3 +154,75 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Projects Carousel
+(function () {
+    const track = document.getElementById('projTrack');
+    const cards = Array.from(track.querySelectorAll('.project-card'));
+    const dotsContainer = document.getElementById('projDots');
+    const carousel = document.getElementById('projCarousel');
+    const projDotsEl = document.getElementById('projDots');
+    let current = 0;
+    const total = cards.length;
+    const CENTER_W = 380;
+    const SIDE_W = 260;
+    const GAP = 32;
+
+    // Build dots
+    cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'proj-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+    });
+
+    // Add counter badge to each card
+    cards.forEach((card, i) => {
+        const counter = document.createElement('div');
+        counter.className = 'proj-counter';
+        counter.textContent = String(i + 1).padStart(2,'0') + '/' + String(total).padStart(2,'0') + ' Projects';
+        card.appendChild(counter);
+    });
+
+    function goTo(index) {
+        current = (index + total) % total;
+
+        cards.forEach((card, i) => {
+            card.classList.remove('pos-center', 'pos-left', 'pos-right');
+            const dist = ((i - current + total) % total);
+            const d = dist > total / 2 ? dist - total : dist;
+            if (d === 0) card.classList.add('pos-center');
+            else if (d === -1) card.classList.add('pos-left');
+            else if (d === 1) card.classList.add('pos-right');
+        });
+
+        // Center the active disc: sum widths of all cards before it
+        const containerWidth = track.parentElement.offsetWidth;
+        let leftEdge = 0;
+        for (let i = 0; i < current; i++) {
+            leftEdge += SIDE_W + GAP;
+        }
+        const offset = (containerWidth / 2) - leftEdge - (CENTER_W / 2);
+        track.style.transform = `translateX(${offset}px)`;
+
+        document.querySelectorAll('.proj-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+        });
+    }
+
+    cards.forEach((card, i) => {
+        card.addEventListener('click', () => {
+            if (!card.classList.contains('pos-center')) {
+                const dist = ((i - current + total) % total);
+                const d = dist > total / 2 ? dist - total : dist;
+                goTo(current + d);
+            }
+        });
+    });
+
+    document.getElementById('projPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('projNext').addEventListener('click', () => goTo(current + 1));
+    window.addEventListener('resize', () => goTo(current));
+
+goTo(0);
+})();
